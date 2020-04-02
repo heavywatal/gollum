@@ -616,7 +616,7 @@ module Precious
       elsif file = wiki.file(fullpath, wiki.ref, true)
         show_file(file)
       elsif @redirects_enabled && redirect_path = wiki.redirects[fullpath]
-        redirect to("#{encodeURIComponent(redirect_path)}?redirected_from=#{encodeURIComponent(fullpath)}")
+        redirect to("#{URI.encode(redirect_path)}?from=#{URI.encode(fullpath)}")
       else
         if @allow_editing
           path = fullpath[-1] == '/' ? "#{fullpath}#{wiki.index_page}" : fullpath # Append default index page if no page name is supplied
