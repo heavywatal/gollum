@@ -55,18 +55,12 @@
         <option>vim</option>
         <option>emacs</option>
       </select>
-      <label for="format">Markup</label>
+      &nbsp;
+      <label for="format">Format</label>
       <select id="wiki_format" name="format" class="form-select">
       {{#formats}}
       {{#enabled}}
       <option {{#selected}}selected="selected" {{/selected}}value="{{id}}" data-ext="{{ext}}">
-        {{name}}
-        </option>
-      {{/enabled}}
-      {{/formats}}
-      {{#formats}}
-      {{^enabled}}
-      <option class="disabled" {{#selected}}selected="selected" {{/selected}}value="{{id}}" data-ext="{{ext}}">
         {{name}}
         </option>
       {{/enabled}}
@@ -107,43 +101,16 @@
       <p><div class="dotted-spinner"></div> Uploading file...</p>
     </div>
 
-    {{#header}}
-
-    <div id="gollum-editor-edit-header" class="collapsed">
-			<button class="btn btn-sm collapsable">{{#octicon}}triangle-down{{/octicon}}</button><button class="btn btn-sm collapsable" hidden>{{#octicon}}triangle-up{{/octicon}}</button>
-      <h4>Header</h4>
-      <textarea id="gollum-editor-header" name="header" class="form-control">{{header}}</textarea>
-    </div>
-    {{/header}}
-
-    {{#footer}}
-    <div id="gollum-editor-edit-footer" class="collapsed">
-      <button class="btn btn-sm collapsable">{{#octicon}}triangle-down{{/octicon}}</button><button class="btn btn-sm collapsable" hidden>{{#octicon}}triangle-up{{/octicon}}</button>
-      <h4>Footer</h4>
-      <textarea id="gollum-editor-footer" name="footer" class="form-control">{{footer}}</textarea>
-    </div>
-    {{/footer}}
-
-    {{#sidebar}}
-    <div id="gollum-editor-edit-sidebar" class="collapsed">
-      <button class="btn btn-sm collapsable">{{#octicon}}triangle-down{{/octicon}}</button><button class="btn btn-sm collapsable" hidden>{{#octicon}}triangle-up{{/octicon}}</button>
-			<h4>Sidebar</h4>
-      
-      <textarea id="gollum-editor-sidebar" name="sidebar" class="form-control">{{sidebar}}</textarea>
-    </div>
-    {{/sidebar}}
-
-    <div id="gollum-editor-edit-summary" class="singleline">
-      <label for="message" class="jaws">Edit message:</label>
+    <div id="gollum-editor-edit-summary" class="singleline pt-3">
+      <label for="message" class="jaws-disabled text-normal">Commit message (edit summary):</label>
       {{#is_create_page}}
-      <input type="text" name="message" class="form-control input-block" id="gollum-editor-message-field" value="Created {{page_name}} ({{format}})">
+      <input type="text" name="message" class="form-control input-block" id="gollum-editor-message-field" value="Create {{page_name}}">
       {{/is_create_page}}
       {{#is_edit_page}}
-      <input type="text" name="message" class="form-control input-block" id="gollum-editor-message-field" value="Updated {{page_name}} ({{format}})">
+      <input type="text" name="message" class="form-control input-block" id="gollum-editor-message-field" value="Update {{page_name}}">
       {{/is_edit_page}}
     </div>
 
-    <span class="jaws"><br></span>
 		<div class="form-actions">
     	<input type="submit" id="gollum-editor-submit" class="btn btn-primary" value="Save" title="Save current changes">
     	<a id="gollum-editor-cancel" class="btn" type="button" title="Cancel editing" onClick="window.history.back()">Cancel</a>
