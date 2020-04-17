@@ -26,7 +26,7 @@ module Precious
             :selected  => @page.version.id == v.id,
             :author    => v.author.name.respond_to?(:force_encoding) ? v.author.name.force_encoding('UTF-8') : v.author.name,
             :message   => v.message.respond_to?(:force_encoding) ? v.message.force_encoding('UTF-8') : v.message,
-            :date      => v.authored_date.strftime("%B %d, %Y"),
+            :date      => v.authored_date.strftime("%Y-%m-%d %H:%M"),
             :user_icon => self.user_icon_code(v.author.email),
             :filename  => filename,
             :date_full => v.authored_date,
