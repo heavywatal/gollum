@@ -219,6 +219,10 @@ module Precious
         end
       end
 
+      get '/logout' do
+        halt 401
+      end
+
       get %r{/(edit|create)/(\.redirects.gollum|(custom|math\.config)\.(js|css))} do
         forbid('Changing this resource is not allowed.')
       end
