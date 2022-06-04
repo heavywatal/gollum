@@ -1,7 +1,7 @@
 module Precious
   module Views
     class LatestChanges < Layout
-      DATE_FORMAT = '%B %d, %Y'
+      DATE_FORMAT = "%Y-%m-%d %H:%M"
 
       include Pagination
       include HasUserIcons
